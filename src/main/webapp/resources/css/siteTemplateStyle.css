@@ -1,0 +1,75 @@
+h1{
+   color: #dd7127;
+}
+
+#mainDiv{
+    width: 1080px;
+    height: 100%;
+    margin:auto;
+	border: 1px solid black;
+	background-color: #FFFFE2;
+}
+
+#header{
+    border: 1px solid black;
+    background-color: #FAFF99;
+    height: 180px;
+    text-align: center;
+}
+
+#signInArea{
+    float: right;
+    position: relative;
+    width: 300px;
+    height: 180px;
+    border-left: 1px solid black;
+}
+
+#miniHeader{
+    border: 1px solid black;
+    float: left;
+    position: relative;
+    width: 775px;
+    height: 180px;
+}
+
+#formSignIn{
+    display: block;
+	padding: 0px 10px;
+	margin-top:10px;
+    
+}
+
+#menuDiv{
+    border: 1px solid black;
+    text-align: center;
+}
+
+#footerr{
+    border: 1px solid black;
+    text-align: center;
+    position: static;
+}
+
+#filterQuery{
+    width: 250px;
+    height: 650px;
+    border: 1px solid black;
+    float: left;
+   
+}
+#bodyContent{
+    width: 574px;
+    height: 650px;
+    border: 1px solid black;
+    float: left;
+   
+}
+
+#myProfile{
+    width: 250px;
+    height: 650px;
+    border: 1px solid black;
+    float: right;
+   
+}
