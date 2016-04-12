@@ -24,8 +24,8 @@
               <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/logged.jsp" />
        </definition>
 
-       <definition name="Messages" extends="DefaultTemplate">
-              <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/Messages.jsp" />
+       <definition name="messages" extends="DefaultTemplate">
+              <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/messages.jsp" />
        </definition>
 
 

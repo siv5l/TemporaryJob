@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
  */
 public class LoginValidation {
 
-    @Size(min=2,max=30)
+    @Size(min=4,max=20,message = "introdu mai mult de 4 litere")
     private String username;
     private String password;
 

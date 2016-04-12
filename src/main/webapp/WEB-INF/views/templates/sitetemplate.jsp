@@ -4,6 +4,7 @@
 <%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="titles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <jsp:include page="../loginjsp/includes.jsp" />
@@ -38,11 +39,7 @@
             <a href="/registration" method="get">
                 <button>Registration</button>
             </a>
-            <%--Validarea datelor--%>
-            <c:forEach items="${errors}" var="error">
-                ${error}
-                <br>
-            </c:forEach>
+            <form:errors path="loginValidation.*"/>
         </div>
     </div>
       
@@ -58,7 +55,6 @@
                     Categoria: <input type="text" name="categorie"/>
                 </p>
                 <p>
-
                     <select name="selectedCategories" size="3">
 
                         <%--<jsp:useBean id="" scope="session" type="java.util.List"/>--%>
@@ -67,13 +63,6 @@
                                     ${category.name}
                             </option>
                         </c:forEach>
-
-
-
-                        <%--<option value="Electrotehnica">Electrotehnica</option>--%>
-                        <%--<option value="Constructii">Constructii</option>--%>
-                        <%--<option value="Soferie">Soferie</option>--%>
-                        <%--<option value="Bucatar">Bucatar</option>--%>
                     </select>
                 </p>
                 <p>
@@ -86,13 +75,6 @@
                                     ${location.name}
                             </option>
                         </c:forEach>
-
-
-                        <%--<option value="Chisinau">Chisinau</option>
-                        <option value="Balti">Balti</option>
-                        <option value="Cahul">Cahul</option>
-                        <option value="Hincesti">Hincesti</option>
-                        <option value="Ialoveni">Ialoveni</option>--%>
                     </select>
                 </p>
                 <p>

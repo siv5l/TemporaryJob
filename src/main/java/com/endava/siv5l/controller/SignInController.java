@@ -1,21 +1,19 @@
 package com.endava.siv5l.controller;
 
-import com.endava.siv5l.model.Category;
 import com.endava.siv5l.model.User;
-import com.endava.siv5l.service.CategoryService;
-import com.endava.siv5l.service.ListOfCategories;
-import com.endava.siv5l.service.MessageMap;
+import com.endava.siv5l.service.messaging.MessageMap;
 import com.endava.siv5l.service.UserService;
+import com.endava.siv5l.service.validation.LoginValidation;
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Created by siv5l on 4/3/16.
@@ -32,33 +30,28 @@ public class SignInController {
     private MessageMap messageMap;
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public String checkAccount(@RequestParam("username") String username, @RequestParam("password") String password, ModelMap model){
-
-        ArrayList<String> errors = new ArrayList<String>();
-
-        if(username.equals("") || password.equals("")){
-            errors.add("Nu este inserat username sau parola");
-            errors.add("ads ad asdas ");
-            model.addAttribute("errors",errors);
+    public String checkAccount( @RequestParam("username") String username, @RequestParam("password") String password,
+                                @Valid @ModelAttribute("loginValidation") LoginValidation loginValidation,
+                                BindingResult result,
+                                ModelMap model){
+        if(result.hasErrors()){
             return "signin";
         }
-        User user = userService.getByUsername(username);
-        System.out.println();
-        if (user != null && password.equals( user.getPassword())){
-            model.addAttribute("userAccount",user);
 
-
-            // adaug useru in MAP
-            messageMap.getMap().put(username,new ArrayList<String>());
-
-
-
-
+        try{
+            // adaug useru in MAP pentru chat
+            User user = userService.getByUsername(username);
+            if((user != null) && (password.equals(user.getPassword()))){
+                messageMap.getMap().put(username,new ArrayList<String>());
+                model.addAttribute("userAccount",user);
+            }
+            else {
+                model.addAttribute("unlogged", "nu esti logat");
+            }
             return "logged";
         }
-        else {
-            errors.add("nu exista asa user sau parola nu este corect");
-            model.addAttribute("errors", errors);
+        catch(HibernateException hibernateException){
+            hibernateException.printStackTrace();
             return "signin";
         }
     }

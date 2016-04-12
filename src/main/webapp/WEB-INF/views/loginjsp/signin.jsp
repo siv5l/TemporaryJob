@@ -9,9 +9,10 @@
 
 <%@include file="includes.jsp"%>
 
-  ${userAccount.firstName}
-  <h1>Logheazate</h1>
 
+  <h1>Main Page</h1>
+  <h1>${userAccount.firstName}</h1>
+  <%--<form:errors path="loginValidation.*"/>--%>
 
 <%--<form action="/signin" method="post" >
   <p>
@@ -23,13 +24,13 @@
   <p>
     <input type="submit" value="sign in" />
   </p>
-</form>
+</form> --%>
 
-<c:forEach items="${errors}" var="error">
+<%--<c:forEach items="${errors}" var="error">
   ${error}
-</c:forEach>
+</c:forEach>--%>
 
-<p>
+<%--<p>
   <a href="/registration" metho ds="get">
     <button>Registration</button>
   </a>

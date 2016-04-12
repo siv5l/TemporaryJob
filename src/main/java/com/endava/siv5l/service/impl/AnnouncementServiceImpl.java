@@ -2,6 +2,7 @@ package com.endava.siv5l.service.impl;
 
 import com.endava.siv5l.dao.AnnouncementDAO;
 import com.endava.siv5l.model.Announcement;
+import com.endava.siv5l.service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
