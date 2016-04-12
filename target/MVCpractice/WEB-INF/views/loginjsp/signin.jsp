@@ -9,8 +9,8 @@
 
 <%@include file="includes.jsp"%>
 
-
-<h1>Logheazate</h1>
+  ${userAccount.firstName}
+  <h1>Logheazate</h1>
 
 
 <%--<form action="/signin" method="post" >

@@ -7,7 +7,6 @@
                    template="/WEB-INF/views/templates/sitetemplate.jsp">
               <put-attribute name="title" value="" />
               <put-attribute name="header" value="/WEB-INF/views/templates/header.jsp" />
-              <put-attribute name="loginArea" value="/WEB-INF/views/templates/login.jsp" />
               <put-attribute name="menu" value="/WEB-INF/views/templates/menu.jsp" />
               <put-attribute name="bodyContent" value="" />
               <put-attribute name="footer" value="/WEB-INF/views/templates/footer.jsp" />
@@ -21,8 +20,12 @@
               <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/registration.jsp" />
        </definition>
 
-     <definition name="logged" extends="DefaultTemplate">
+       <definition name="logged" extends="DefaultTemplate">
               <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/logged.jsp" />
+       </definition>
+
+       <definition name="Messages" extends="DefaultTemplate">
+              <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/Messages.jsp" />
        </definition>
 
 
