@@ -28,10 +28,20 @@ public class EntryController {
     @RequestMapping("/temporaryjob")
     public String onEntryPage(HttpSession session){
 
+
         if((session.getAttribute("categories") == null) & (session.getAttribute("locations") == null) ) {
             session.setAttribute("categories",categoryService.getAllCategories());
             session.setAttribute("locations",locationService.getAllLocations());
         }
-        return "signin";
+
+        try{
+            if(!session.getAttribute("userAccount").equals(null)){
+                return "logged";
+            }
+        }
+        catch (NullPointerException e){
+            return "signin";
+        }
+        return "logged";
     }
 }

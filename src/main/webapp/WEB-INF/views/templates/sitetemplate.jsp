@@ -19,27 +19,11 @@
     
   <div id="mainDiv">
     <div id="header">
-        <div id="miniHeader">
+        <div id="miniLeftHeader">
             <tiles:insertAttribute name="header" />
         </div>
-
-        <div id="loginArea">
-            Sign In Area
-            <form id="formSignIn" action="/signin" method="post">
-                <p>
-                    Username : <input type="text" name="username" />
-                </p>
-                <p>
-                    Password : <input type="password" name="password" />
-                </p>
-                <p>
-                    <input type="submit" value="sign in" />
-                </p>
-            </form>
-            <a href="/registration" method="get">
-                <button>Registration</button>
-            </a>
-            <form:errors path="loginValidation.*"/>
+        <div id="signInArea">
+                <tiles:insertAttribute name="logArea" />
         </div>
     </div>
       
@@ -52,7 +36,7 @@
            Data filter
             <form>
                 <p>
-                    Categoria: <input type="text" name="categorie"/>
+                Categoria:
                 </p>
                 <p>
                     <select name="selectedCategories" size="3">
@@ -66,13 +50,13 @@
                     </select>
                 </p>
                 <p>
-                    Localitate: <input type="text" name="localitate" />
+                    Localitate:
                 </p>
                 <p>
                     <select name="selectedLocations" size="3">
                         <c:forEach items="${locations}" var="location">
                             <option value="${location.name}">
-                                    ${location.name}
+                                ${location.name}
                             </option>
                         </c:forEach>
                     </select>
@@ -101,7 +85,6 @@
                          <input name="submitmsg" type="submit"  id="submitmsg" value="Send"  />
                      </p>
                  </form>
-
                 <a href="/retrievemessage"> Get messages </a>
 
              </div>
@@ -111,9 +94,8 @@
     <div id="footerr">
       <tiles:insertAttribute name="footer" />
     </div>
-      
+
   </div>
- 
 
 </body>
 </html>

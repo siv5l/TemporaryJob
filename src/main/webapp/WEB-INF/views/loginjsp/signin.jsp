@@ -11,6 +11,7 @@
 
 
   <h1>Main Page</h1>
+<%--<h1>${unlogged}</h1>--%>
   <h1>${userAccount.firstName}</h1>
   <%--<form:errors path="loginValidation.*"/>--%>
 

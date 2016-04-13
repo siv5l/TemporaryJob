@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -25,14 +26,19 @@ public class ChatController {
 
     @RequestMapping(value="/insertmessage", method = RequestMethod.POST)
     public String insertMessages(@RequestParam("toWhom") String toWhom,@RequestParam("sendMessage") String sendMessage){
-        messageMap.getMap().get(toWhom).add(sendMessage);
-
-        for(Map.Entry<String,ArrayList<String>> entry : messageMap.getMap().entrySet()){
-            System.out.println("username: " + entry.getKey());
-            ArrayList<String> array = entry.getValue();
-            for(String str : array){
-                System.out.println("mesajul: " +  str);
+        try {
+            messageMap.getMap().get(toWhom).add(sendMessage);
+            for(Map.Entry<String,ArrayList<String>> entry : messageMap.getMap().entrySet()){
+                System.out.println("username: " + entry.getKey());
+                ArrayList<String> array = entry.getValue();
+                for(String str : array){
+                    System.out.println("mesajul: " +  str);
+                }
             }
+        }catch (NullPointerException e){
+            e.getMessage();
+            System.out.println("1");
+            return "logged";
         }
         return "logged";
     }

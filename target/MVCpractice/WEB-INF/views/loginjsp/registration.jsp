@@ -8,8 +8,8 @@
 --%>
 
 <%@include file="includes.jsp"%>
-
-
+<link href="/resources/css/registrationStyle.css" rel="stylesheet" />
+<div id="registrationBox">
 <form:form action="/submitregistration" method="post" commandName="user">
   <table>
   <tr>
@@ -39,3 +39,4 @@
   </tr>
   </table>
   </form:form>
+</div>

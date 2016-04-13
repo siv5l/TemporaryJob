@@ -18,19 +18,21 @@ h1{
 }
 
 #signInArea{
-    float: right;
-    position: relative;
-    width: 300px;
+    width: 250px;
     height: 180px;
+    float: left;
+    position: relative;
+    display: block;
     border-left: 1px solid black;
 }
 
-#miniHeader{
+#miniLeftHeader{
     border: 1px solid black;
     float: left;
     position: relative;
-    width: 775px;
+    width: 825px;
     height: 180px;
+    margin:auto;
 }
 
 #formSignIn{

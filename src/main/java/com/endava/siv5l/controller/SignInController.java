@@ -47,6 +47,7 @@ public class SignInController {
             }
             else {
                 model.addAttribute("unlogged", "nu esti logat");
+                return "signin";
             }
             return "logged";
         }
@@ -59,6 +60,18 @@ public class SignInController {
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
     public String checkAcount(){
         return "logged";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String singUp(){
+        return "login";
+    }
+
+    @RequestMapping(value = "/registrationon", method = RequestMethod.GET)
+    public String registrationUp(ModelMap map){
+        User user = new User();
+        map.put("user",user);
+        return "registration";
     }
 
 }
