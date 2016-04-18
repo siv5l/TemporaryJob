@@ -10,6 +10,7 @@
               <put-attribute name="logArea" value="" /> <!--empty-->
               <put-attribute name="menu" value="/WEB-INF/views/templates/menu.jsp" />
               <put-attribute name="bodyContent" value="" /> <!--empty-->
+              <put-attribute name="profile" value="" /> <!--empty-->
               <put-attribute name="footer" value="/WEB-INF/views/templates/footer.jsp" />
        </definition>
 
@@ -21,12 +22,16 @@
        <definition name="logged" extends="DefaultTemplate">
               <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/logged.jsp" />
               <put-attribute name="logArea" value="/WEB-INF/views/loginjsp/logout.jsp" />
+              <put-attribute name="profile" value="/WEB-INF/views/loginjsp/profileBox.jsp" />
        </definition>
 
        <definition name="messages" extends="DefaultTemplate">
               <put-attribute name="bodyContent" value="/WEB-INF/views/loginjsp/messages.jsp" />
               <put-attribute name="logArea" value="/WEB-INF/views/loginjsp/logout.jsp" />
+              <put-attribute name="profile" value="/WEB-INF/views/loginjsp/profileBox.jsp" />
        </definition>
+
+
 
 
 </tiles-definitions>

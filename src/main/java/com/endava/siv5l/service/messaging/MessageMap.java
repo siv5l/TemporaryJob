@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by siv5l on 4/12/16.
@@ -13,20 +12,20 @@ import java.util.Map;
 @Component
 public class MessageMap {
 
-    HashMap<String,ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+    HashMap<String,HashMap<String,ArrayList<Message>>> mapa = new HashMap<String, HashMap<String, ArrayList<Message>>>();
 
 
     public MessageMap(){}
 
-    public MessageMap(HashMap<String, ArrayList<String>> map) {
-        this.map = map;
+    public MessageMap(HashMap<String, HashMap<String, ArrayList<Message>>> mapa) {
+        this.mapa = mapa;
     }
 
-    public HashMap<String, ArrayList<String>> getMap() {
-        return map;
+    public HashMap<String, HashMap<String, ArrayList<Message>>> getMapa() {
+        return mapa;
     }
 
-    public void setMap(HashMap<String, ArrayList<String>> map) {
-        this.map = map;
+    public void setMapa(HashMap<String, HashMap<String, ArrayList<Message>>> mapa) {
+        this.mapa = mapa;
     }
 }

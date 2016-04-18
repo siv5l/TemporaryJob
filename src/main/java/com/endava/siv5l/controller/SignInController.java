@@ -1,6 +1,7 @@
 package com.endava.siv5l.controller;
 
 import com.endava.siv5l.model.User;
+import com.endava.siv5l.service.messaging.Message;
 import com.endava.siv5l.service.messaging.MessageMap;
 import com.endava.siv5l.service.UserService;
 import com.endava.siv5l.service.validation.LoginValidation;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by siv5l on 4/3/16.
@@ -42,7 +44,10 @@ public class SignInController {
             // adaug useru in MAP pentru chat
             User user = userService.getByUsername(username);
             if((user != null) && (password.equals(user.getPassword()))){
-                messageMap.getMap().put(username,new ArrayList<String>());
+//              messageMap.getMap().put(username,new ArrayList<Message>());
+
+                messageMap.getMapa().put(username,new HashMap<String, ArrayList<Message>>());  // ii cream userului
+                                                                                              // logat o mapa de mesaje
                 model.addAttribute("userAccount",user);
             }
             else {

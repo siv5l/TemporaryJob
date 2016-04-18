@@ -9,21 +9,7 @@
 --%>
 
 <%@include file="includes.jsp"%>
+<link href="/resources/css/loggedStyle.css" rel="stylesheet" />
 
 <h1>Main Page</h1>
-<h1>${userAccount.firstName}</h1>
 
-<%--<h1>${unlogged}</h1>--%>
-<%--
-<%
-  User userSession = (User) session.getAttribute("userAccount");    // task 1 ????????
-%>
- <c:choose>
-   <c:when test="${userSession.equals(null)}">
-     <c:redirect url="signin.jsp" />
-   </c:when>
-   <c:otherwise>
-     <h1> ${userAccount.firstName}</h1>
-     <h1> no credentials</h1>
-   </c:otherwise>
- </c:choose>--%>

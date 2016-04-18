@@ -40,8 +40,6 @@
                 </p>
                 <p>
                     <select name="selectedCategories" size="3">
-
-                        <%--<jsp:useBean id="" scope="session" type="java.util.List"/>--%>
                         <c:forEach items="${categories}" var="category">
                             <option value="${category.name}">
                                     ${category.name}
@@ -69,8 +67,12 @@
         <div id="bodyContent">
             <tiles:insertAttribute name="bodyContent" />
         </div>
-        <div id="myProfile">
-             <div id="chatBox">
+        <div id="profileBox">
+            <div>
+                <tiles:insertAttribute name="profile" />
+            </div>
+
+           <%--  <div id="chatBox">
                  <form name="message" id="messageForm" action="/insertmessage" method="post">
                      <p>
                         To whom? <input name="toWhom" type="text" id="toWhom" size="20" />
@@ -87,11 +89,11 @@
                  </form>
                 <a href="/retrievemessage"> Get messages </a>
 
-             </div>
+             </div>--%>
         </div>
     </div>
       
-    <div id="footerr">
+    <div id="footer">
       <tiles:insertAttribute name="footer" />
     </div>
 

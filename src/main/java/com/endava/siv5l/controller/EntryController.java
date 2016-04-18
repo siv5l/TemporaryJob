@@ -30,18 +30,20 @@ public class EntryController {
 
 
         if((session.getAttribute("categories") == null) & (session.getAttribute("locations") == null) ) {
-            session.setAttribute("categories",categoryService.getAllCategories());
-            session.setAttribute("locations",locationService.getAllLocations());
+            session.setAttribute("categories", categoryService.getAllCategories());
+            session.setAttribute("locations", locationService.getAllLocations());
         }
 
         try{
             if(!session.getAttribute("userAccount").equals(null)){
                 return "logged";
             }
+            else {
+                return "signin";
+            }
         }
         catch (NullPointerException e){
             return "signin";
         }
-        return "logged";
     }
 }

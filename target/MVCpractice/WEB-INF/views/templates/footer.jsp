@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-  <p>footer</p>
+  footer
 </body>
 </html>

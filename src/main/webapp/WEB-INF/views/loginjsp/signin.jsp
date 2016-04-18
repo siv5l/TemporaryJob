@@ -8,32 +8,8 @@
 --%>
 
 <%@include file="includes.jsp"%>
-
+<link href="/resources/css/signinStyle.css" rel="stylesheet" />
 
   <h1>Main Page</h1>
-<%--<h1>${unlogged}</h1>--%>
-  <h1>${userAccount.firstName}</h1>
-  <%--<form:errors path="loginValidation.*"/>--%>
 
-<%--<form action="/signin" method="post" >
-  <p>
-    Username : <input type="text" name="username" />
-  </p>
-  <p>
-    Password : <input type="password" name="password" />
-  </p>
-  <p>
-    <input type="submit" value="sign in" />
-  </p>
-</form> --%>
-
-<%--<c:forEach items="${errors}" var="error">
-  ${error}
-</c:forEach>--%>
-
-<%--<p>
-  <a href="/registration" metho ds="get">
-    <button>Registration</button>
-  </a>
-</p>--%>
 

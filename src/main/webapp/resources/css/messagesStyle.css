@@ -1,0 +1,106 @@
+#messageContainer{
+    width: 100%;
+    height: 100%;
+}
+
+#fromTitle{
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    float: left;
+}
+
+#messageContent{
+    float: left;
+    width: 69%;
+    height: 100%;
+    border-left: 1px solid blue;
+}
+
+#listBox{
+    height: 95%;
+    background-color: #cce6ff;
+}
+
+#personsBox{
+    border-bottom: 1px solid black;
+    height: 5%;
+}
+
+.userInputMsg{
+    background-color: #ffe6e6;
+    height: 5%;
+    border-bottom: 1px solid black;
+}
+
+#contentTitle{
+    height: 5%;
+    border-bottom: 1px solid black;  
+    text-align: center;
+}
+
+#contentText{
+    height: 95%;
+    text-align: left;
+    background-color: white;
+    width: 100%;
+}
+
+#messageForm{
+    height: 100%;
+    background-color: #ffffe6;
+}
+
+#outputBox{
+    height: 85%;
+    background-color: #ffffe6;
+    border-top: 1px solid black;
+}
+
+#textAreaOutput{
+    width: 99%;
+    height: 95%;
+}
+
+#whomDiv{
+    height: 5%;
+}
+
+#inputWhom{
+    width: 97%;
+    margin-top: 5px;
+}
+
+#sendDiv{
+    height: 5%;
+    float: left;
+}
+
+#msgToSend{
+    width: 97%;
+    margin-top: 5px;
+}
+
+#outputMsgBox{
+    height: 5%;
+    border-bottom: 1px solid black;
+}
+
+#btnSend{
+    background: #ff8566;
+}
+#getMsgLink{
+    float: left;
+    padding-left: 20px;
+}
+
+#fullMessage{
+    width: 100%;
+    border: 1px solid black;
+    
+}
+
+#fullContent{
+    width: 100%;
+}
+
