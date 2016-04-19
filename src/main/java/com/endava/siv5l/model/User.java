@@ -1,13 +1,14 @@
 package com.endava.siv5l.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by siv5l on 4/3/16.
  */
 @Entity
 @Table(name = "User")
-public class User {
+public class User implements Serializable {
 
     @Id
     @Column(name = "user_id")

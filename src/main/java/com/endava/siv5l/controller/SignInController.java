@@ -7,12 +7,10 @@ import com.endava.siv5l.service.UserService;
 import com.endava.siv5l.service.validation.LoginValidation;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +42,7 @@ public class SignInController {
             // adaug useru in MAP pentru chat
             User user = userService.getByUsername(username);
             if((user != null) && (password.equals(user.getPassword()))){
-//              messageMap.getMap().put(username,new ArrayList<Message>());
+                //messageMap.getMap().put(username,new ArrayList<Message>());
 
                 messageMap.getMapa().put(username,new HashMap<String, ArrayList<Message>>());  // ii cream userului
                                                                                               // logat o mapa de mesaje
@@ -78,5 +76,4 @@ public class SignInController {
         map.put("user",user);
         return "registration";
     }
-
 }
