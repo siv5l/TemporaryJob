@@ -40,11 +40,17 @@
                 </p>
                 <p>
                     <select name="selectedCategories" size="3">
-                        <c:forEach items="${categories}" var="category">
+                      <%--  <c:forEach items="${categories}" var="category">
                             <option value="${category.name}">
                                     ${category.name}
                             </option>
-                        </c:forEach>
+                        </c:forEach>--%>
+                        <option value="Electronica">Electronica</option>
+                        <option value="Constructie">Constructie</option>
+                        <option value="Soferie">Soferie</option>
+                        <option value="Bucatar">Bucatar</option>
+                        <option value="Dadac">Dadac</option>
+                        <option value="Contabilitate">Contabilitate</option>
                     </select>
                 </p>
                 <p>
@@ -52,11 +58,17 @@
                 </p>
                 <p>
                     <select name="selectedLocations" size="3">
-                        <c:forEach items="${locations}" var="location">
+                       <%-- <c:forEach items="${locations}" var="location">
                             <option value="${location.name}">
                                 ${location.name}
                             </option>
-                        </c:forEach>
+                        </c:forEach>--%>
+                           <option value="Chisinau">Chisinau</option>
+                           <option value="Cahul">Cahul</option>
+                           <option value="Balti">Balti</option>
+                           <option value="Hincesti">Hincesti</option>
+                           <option value="Ialoveni">Ialoveni</option>
+                           <option value="Orhei">Orhei</option>
                     </select>
                 </p>
                 <p>
@@ -71,25 +83,6 @@
             <div>
                 <tiles:insertAttribute name="profile" />
             </div>
-
-           <%--  <div id="chatBox">
-                 <form name="message" id="messageForm" action="/insertmessage" method="post">
-                     <p>
-                        To whom? <input name="toWhom" type="text" id="toWhom" size="20" />
-                     </p>
-                     <p>
-                         <textarea  rows="20" cols="20"  name="textMessage"></textarea>
-                     </p>
-                     <p>
-                         <input name="sendMessage" type="text" size="20" />
-                     </p>
-                     <p>
-                         <input name="submitmsg" type="submit"  id="submitmsg" value="Send"  />
-                     </p>
-                 </form>
-                <a href="/retrievemessage"> Get messages </a>
-
-             </div>--%>
         </div>
     </div>
       

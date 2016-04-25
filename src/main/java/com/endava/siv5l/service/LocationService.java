@@ -13,4 +13,5 @@ public interface LocationService {
     public void delete(int locationId);
     public Location getLocation(int locationId);
     public List getAllLocations();
+    public Location getByName(String name);
 }

@@ -13,4 +13,5 @@ public interface CategoryDAO {
     public void delete(int categoryId);
     public Category getCategory(int categoryId);
     public List getAllCategories();
+    public Category getByName(String name);
 }

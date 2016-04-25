@@ -43,4 +43,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List getAllCategories() {
         return categoryDAO.getAllCategories();
     }
+
+    @Transactional
+    public Category getByName(String name) {
+        return categoryDAO.getByName(name);
+    }
 }

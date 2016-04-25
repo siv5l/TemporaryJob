@@ -18,7 +18,7 @@
     </a>
   </p>
   <p>
-  <a href="/registrationon" method="get">
+  <a href="/registration" method="get">
     <button>Registration</button>
   </a>
   </p>

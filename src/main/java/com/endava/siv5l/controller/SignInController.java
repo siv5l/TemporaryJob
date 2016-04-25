@@ -35,18 +35,17 @@ public class SignInController {
                                 BindingResult result,
                                 ModelMap model){
         if(result.hasErrors()){
-            return "signin";
+            /*return "signin";*/
+            return "login";
         }
-
         try{
             // adaug useru in MAP pentru chat
             User user = userService.getByUsername(username);
             if((user != null) && (password.equals(user.getPassword()))){
-                //messageMap.getMap().put(username,new ArrayList<Message>());
-
                 messageMap.getMapa().put(username,new HashMap<String, ArrayList<Message>>());  // ii cream userului
-                                                                                              // logat o mapa de mesaje
+                                                                                                // logat o mapa de mesaje
                 model.addAttribute("userAccount",user);
+                System.out.println("1");
             }
             else {
                 model.addAttribute("unlogged", "nu esti logat");

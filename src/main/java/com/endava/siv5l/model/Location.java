@@ -1,6 +1,8 @@
 package com.endava.siv5l.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by siv5l on 4/11/16.
@@ -20,12 +22,29 @@ public class Location {
     @Column(name="zip_code")
     private int zipCode;
 
-    public Location(){}
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "User_Location",
+            joinColumns = {@JoinColumn(name = "location_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private List<User> locationUsers = new ArrayList<User>();
 
-    public Location(long locationId, String name, int zipCode) {
-        this.locationId = locationId;
+
+    public Location(){
+    }
+
+    public Location(String name, int zipCode, List<User> locationUsers) {
         this.name = name;
         this.zipCode = zipCode;
+        this.locationUsers = locationUsers;
+    }
+
+
+    public List<User> getLocationUsers() {
+        return locationUsers;
+    }
+
+    public void setLocationUsers(List<User> locationUsers) {
+        this.locationUsers = locationUsers;
     }
 
     public long getLocationId() {

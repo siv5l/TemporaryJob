@@ -42,4 +42,9 @@ public class LocationServiceImpl implements LocationService {
     public List getAllLocations() {
         return locationDAO.getAllLocations();
     }
+
+    @Transactional
+    public Location getByName(String name){
+        return locationDAO.getByName(name);
+    }
 }

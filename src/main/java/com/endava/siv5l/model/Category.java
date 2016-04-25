@@ -1,6 +1,8 @@
 package com.endava.siv5l.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by siv5l on 4/11/16.
@@ -17,13 +19,28 @@ public class Category {
     @Column(name="descriere")
     private String descriere;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "User_Category",
+            joinColumns = {@JoinColumn(name = "category_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private List<User> categoryUsers = new ArrayList<User>();
+
+
 
     public Category(){}
 
-    public Category(long categoryId, String name, String descriere){
-        this.categoryId = categoryId;
+    public Category(String name, String descriere, List<User> categoryUsers) {
         this.name = name;
         this.descriere = descriere;
+        this.categoryUsers = categoryUsers;
+    }
+
+    public List<User> getCategoryUsers() {
+        return categoryUsers;
+    }
+
+    public void setCategoryUsers(List<User> categoryUsers) {
+        this.categoryUsers = categoryUsers;
     }
 
     public long getCategoryId() {

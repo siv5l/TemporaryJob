@@ -2,6 +2,7 @@ package com.endava.siv5l.dao.impl;
 
 import com.endava.siv5l.dao.LocationDAO;
 import com.endava.siv5l.model.Location;
+import com.endava.siv5l.model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,5 +41,10 @@ public class LocationDAOImpl implements LocationDAO {
     @Override
     public List getAllLocations() {
         return sessionFactory.getCurrentSession().createQuery("From Location").list();
+    }
+
+    @Override
+    public Location getByName(String name) {
+        return (Location) sessionFactory.getCurrentSession().createQuery("FROM Location l where l.name = :l").setParameter("l", name).uniqueResult();
     }
 }

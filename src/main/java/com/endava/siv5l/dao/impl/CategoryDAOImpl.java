@@ -2,6 +2,7 @@ package com.endava.siv5l.dao.impl;
 
 import com.endava.siv5l.dao.CategoryDAO;
 import com.endava.siv5l.model.Category;
+import com.endava.siv5l.model.Location;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,5 +41,10 @@ public class CategoryDAOImpl implements CategoryDAO{
     @Override
     public List getAllCategories() {
         return sessionFactory.getCurrentSession().createQuery("FROM Category").list();
+    }
+
+    @Override
+    public Category getByName(String name) {
+        return (Category) sessionFactory.getCurrentSession().createQuery("FROM Category c where c.name = :c").setParameter("c", name).uniqueResult();
     }
 }

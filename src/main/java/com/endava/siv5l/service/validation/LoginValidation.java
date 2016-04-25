@@ -10,6 +10,7 @@ public class LoginValidation {
 
     @Size(min=4,max=20,message = "introdu mai mult de 4 litere")
     private String username;
+    @Size(min=4, message = "introdu o parola mai lunga")
     private String password;
 
 

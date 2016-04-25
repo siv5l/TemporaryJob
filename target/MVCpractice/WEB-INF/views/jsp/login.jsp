@@ -29,7 +29,10 @@
             <a href="/registration" method="get">
                 <button>Registration</button>
             </a>
-            <form:errors path="loginValidation.*"/>
-        </div>
+            <div>
+                <form:errors path="loginValidation.*"/>
+            </div>
+
+</div>
 </body>
 </html>

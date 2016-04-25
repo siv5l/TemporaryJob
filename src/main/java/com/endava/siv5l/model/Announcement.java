@@ -18,13 +18,25 @@ public class Announcement {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    private User user;
+
 
     public Announcement(){}
 
-    public Announcement(long announcementId, String subject, String description) {
-        this.announcementId = announcementId;
+    public Announcement(String subject, String description, User user) {
         this.subject = subject;
         this.description = description;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getAnnouncementId() {

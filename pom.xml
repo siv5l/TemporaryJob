@@ -51,11 +51,6 @@
             <version>4.2.5.RELEASE</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>4.2.5.RELEASE</version>
-        </dependency>-->
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -71,11 +66,18 @@
             <version>3.6.7.Final</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>3.3.2.GA</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>3.6.10.Final</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -83,11 +85,11 @@
             <version>5.2.4.Final</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-commons-annotations</artifactId>
             <version>3.3.0.ga</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -95,11 +97,11 @@
             <version>3.3.1.GA</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.hibernate.common</groupId>
             <artifactId>hibernate-commons-annotations</artifactId>
             <version>4.0.4.Final</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>taglibs</groupId>

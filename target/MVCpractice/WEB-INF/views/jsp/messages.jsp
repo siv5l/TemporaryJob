@@ -13,9 +13,8 @@
     <title>Messages</title>
     <link href="/resources/css/messagesStyle.css" rel="stylesheet" />
 
-
     <script type="text/javascript"
-            src="http://code.jquery.com/jquery-2.2.2.min.js">/* 1.10.1*/
+            src="http://code.jquery.com/jquery-2.2.2.min.js">
     </script>
 
     <script type="text/javascript">
@@ -23,7 +22,7 @@
             $.ajax({
                 type: "GET",
                 url : '/retrievemessage',
-                dataType : 'json', // deodata vine in json, eu nu trebuie sa fac parse to json
+                dataType : 'json',
                 success : function(data) {
                     var output = "";
                     for (var i in data) {
@@ -49,6 +48,39 @@
         intervalId = setInterval(crunchifyAjax, 500);
     </script>
 
+    <script type="text/javascript">
+        function sendAsync(){
+            var form_data = {
+                toWhom: $('#toWhom').val(),
+                msgToSend: $('#msgToSend').val()
+            };
+            $.ajax({
+                contentType : 'application/json; charset=utf-8',
+                type: "POST",
+                url: "/insertmessage",
+                dataType : 'json',
+                data: JSON.stringify(form_data),
+                success: function(response){
+                    console.log(response);
+                    var output = "";
+                    for(var j in response){
+                        output += "<div id=\"";
+                        output += "fullMessage\">";
+                        output += "<div id=\"";
+                        output += "fullContent\">";
+                        output += response[j].from;
+                        output += ": ";
+                        output += response[j].contentMsg;
+                        output += "</div>";
+                        output += "</div>";
+                        console.log(output);
+                    }
+                    $('#outputBox').html(output);
+                }
+            })
+        }
+    </script>
+
 </head>
 <body>
     <div id="messageContainer">
@@ -67,10 +99,10 @@
                 Content
             </div>
             <div id="contentText">
-                <form id="messageForm" action="/insertmessage" method="post">
+                <div id="messageForm"> <%--action="/insertmessage" method="post"--%>
 
                     <div id="whomDiv">
-                        <input id="inputWhom" type="text" name="toWhom"/>
+                        <input id="toWhom" type="text" name="toWhom"/>
                     </div>
 
                     <div id="outputBox">    
@@ -80,21 +112,20 @@
                                     <c:out value="${message.from}" />:
                                     <c:out value="${message.contentMsg}"/>
                                 </div>
-                               <!-- <div id="fullDate">
+                                <%--<div id="fullDate">
                                     <c:out value="${message.date.toString()}"/>
-                                </div>-->
+                                </div>--%>
                             </div>
                         </c:forEach>
                     </div>
                     
                     <div id="outputMsgBox">
-                        <input type="text" id="msgToSend" name="sendMessage" />
+                        <input type="text" id="msgToSend" name="msgToSend"/>
                     </div>
-                    
                     <div id="sendDiv">
-                        <input type="submit" id="btnSend" value="send" />
+                        <input type="submit" id="btnSend" value="send" onclick="sendAsync()" />
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

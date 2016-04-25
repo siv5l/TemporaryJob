@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - TemporaryJob@localhost" uuid="1e6cd2e6-f527-442e-9f34-0bf874b3dcbb">
+    <database-info product="MySQL" version="5.5.47-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="TemporaryJob"/>
+    <table name="Announcement" schema="" catalog="TemporaryJob" type="TABLE">
+      <column name="announcement_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="subject" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="announcement_id"/>
+      <exported-key name="fk_Announcement_Category_T_1" table="Announcement_Category_T" schema="" catalog="TemporaryJob" columns="announcement_id"/>
+    </table>
+    <table name="Announcement_Category_T" schema="" catalog="TemporaryJob" type="TABLE">
+      <column name="announcement_category_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="announcement_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="category_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="announcement_category_id"/>
+      <foreign-key name="fk_Announcement_Category_T_1" columns="announcement_id" ref-table="Announcement" ref-schema="" ref-catalog="TemporaryJob" ref-columns="announcement_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Announcement_Category_T_2" columns="category_id" ref-table="Category" ref-schema="" ref-catalog="TemporaryJob" ref-columns="category_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Announcement_Category_T_1_idx" unique="false" columns="announcement_id"/>
+      <index name="fk_Announcement_Category_T_2_idx" unique="false" columns="category_id"/>
+    </table>
+    <table name="Category" schema="" catalog="TemporaryJob" type="TABLE">
+      <column name="category_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descriere" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="category_id"/>
+      <exported-key name="fk_Announcement_Category_T_2" table="Announcement_Category_T" schema="" catalog="TemporaryJob" columns="category_id"/>
+      <exported-key name="fk_User_Category_T_2" table="User_Category_T" schema="" catalog="TemporaryJob" columns="category_id"/>
+    </table>
+    <table name="Location" schema="" catalog="TemporaryJob" type="TABLE">
+      <column name="location_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="zip_code" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="location_id"/>
+      <exported-key name="fk_User_Location_T_2" table="User_Location_T" schema="" catalog="TemporaryJob" columns="location_id"/>
+    </table>
+    <table name="User" schema="" catalog="TemporaryJob" type="TABLE">
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="first_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="fk_User_Category_T_1" table="User_Category_T" schema="" catalog="TemporaryJob" columns="user_id"/>
+      <exported-key name="fk_User_Location_T_1" table="User_Location_T" schema="" catalog="TemporaryJob" columns="user_id"/>
+    </table>
+    <table name="User_Category_T" schema="" catalog="TemporaryJob" type="TABLE">
+      <column name="User_Category_T_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="category_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="User_Category_T_id"/>
+      <foreign-key name="fk_User_Category_T_1" columns="user_id" ref-table="User" ref-schema="" ref-catalog="TemporaryJob" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_User_Category_T_2" columns="category_id" ref-table="Category" ref-schema="" ref-catalog="TemporaryJob" ref-columns="category_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_User_Category_T_1_idx" unique="false" columns="user_id"/>
+      <index name="fk_User_Category_T_2_idx" unique="false" columns="category_id"/>
+    </table>
+    <table name="User_Location_T" schema="" catalog="TemporaryJob" type="TABLE">
+      <column name="User_Location_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="location_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="User_Location_id"/>
+      <foreign-key name="fk_User_Location_T_1" columns="user_id" ref-table="User" ref-schema="" ref-catalog="TemporaryJob" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_User_Location_T_2" columns="location_id" ref-table="Location" ref-schema="" ref-catalog="TemporaryJob" ref-columns="location_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_User_Location_T_1_idx" unique="false" columns="user_id"/>
+      <index name="fk_User_Location_T_2_idx" unique="false" columns="location_id"/>
+    </table>
+  </data-source>
+</component>
