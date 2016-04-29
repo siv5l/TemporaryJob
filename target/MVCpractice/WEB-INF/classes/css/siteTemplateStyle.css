@@ -28,10 +28,10 @@ body{
 }
 
 #signInArea{
-    /*width: 250px;*/
+
     width: 25%;
-    height: 180px;
     float: right;
+    height: 180px;
     position: relative;
     border-left: 1px solid black;
 }
@@ -45,8 +45,11 @@ body{
 #menuDiv{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    height: 40px;
     text-align: center;
+    background-color: #b3ffff;
     width: 100%;
+    
 }
 
 #Content{
@@ -62,6 +65,12 @@ body{
     float: left;
     text-align: center;
 }
+
+#filterBoot{
+    width: 15%;
+    padding: 0 2px;
+}
+
 #bodyContent{
     height: 650px;
     width: 55%;

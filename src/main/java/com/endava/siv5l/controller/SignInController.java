@@ -22,12 +22,11 @@ import java.util.HashMap;
 @Controller
 @SessionAttributes("userAccount")
 public class SignInController {
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private MessageMap messageMap;
+
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public String checkAccount( @RequestParam("username") String username, @RequestParam("password") String password,
@@ -45,10 +44,8 @@ public class SignInController {
                 messageMap.getMapa().put(username,new HashMap<String, ArrayList<Message>>());  // ii cream userului
                                                                                                 // logat o mapa de mesaje
                 model.addAttribute("userAccount",user);
-                System.out.println("1");
             }
             else {
-                model.addAttribute("unlogged", "nu esti logat");
                 return "signin";
             }
             return "logged";

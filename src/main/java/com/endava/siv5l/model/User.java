@@ -3,6 +3,7 @@ package com.endava.siv5l.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class User implements Serializable {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int userId;
+    private long userId;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -24,6 +25,14 @@ public class User implements Serializable {
     private String username;
     @Column
     private String password;
+    @Column
+    private String phone;
+    @Column
+    private String email;
+    @Column(name = "date_of_birth",columnDefinition = "DATE")
+    @Temporal(TemporalType.DATE)
+    private Date birthday;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "User_Location",
             joinColumns = {@JoinColumn(name = "user_id")},
@@ -50,12 +59,16 @@ public class User implements Serializable {
     public User(){
     }
 
-    public User(String firstName, String lastName, String username, String password, List<Location> userLocations,
-                List<String> locations, List<Category> userCategories, List<String> categories, List<Announcement> announcementsList) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String username, String lastName, String firstName, String password, String phone, String email,
+                Date birthday, List<Location> userLocations, List<String> locations, List<Category> userCategories,
+                List<String> categories, List<Announcement> announcementsList) {
         this.username = username;
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.password = password;
+        this.phone = phone;
+        this.email = email;
+        this.birthday = birthday;
         this.userLocations = userLocations;
         this.locations = locations;
         this.userCategories = userCategories;
@@ -69,6 +82,30 @@ public class User implements Serializable {
 
     public void setAnnouncementsList(List<Announcement> announcementsList) {
         this.announcementsList = announcementsList;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public List<Category> getUserCategories() {
@@ -103,11 +140,11 @@ public class User implements Serializable {
         this.locations = locations;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

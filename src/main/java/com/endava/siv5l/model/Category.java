@@ -25,14 +25,28 @@ public class Category {
             inverseJoinColumns = {@JoinColumn(name = "user_id")})
     private List<User> categoryUsers = new ArrayList<User>();
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name="Announcement_Category_T",
+            joinColumns = {@JoinColumn(name="category_id")},
+            inverseJoinColumns = {@JoinColumn(name="announcement_id")})
+    private List<Announcement> announcementList = new ArrayList<Announcement>();
 
 
     public Category(){}
 
-    public Category(String name, String descriere, List<User> categoryUsers) {
-        this.name = name;
+    public Category(String descriere, String name, List<User> categoryUsers, List<Announcement> announcementList) {
         this.descriere = descriere;
+        this.name = name;
         this.categoryUsers = categoryUsers;
+        this.announcementList = announcementList;
+    }
+
+    public List<Announcement> getAnnouncementList() {
+        return announcementList;
+    }
+
+    public void setAnnouncementList(List<Announcement> announcementList) {
+        this.announcementList = announcementList;
     }
 
     public List<User> getCategoryUsers() {

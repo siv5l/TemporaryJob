@@ -7,10 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title></title>
+<head> 
 </head>
 <body>
-<p>Menu</p>
+<div id="subMenu">
+    <div class="menuCell">
+        <a href="/temporaryjob">Home</a>
+    </div>
+    <div class="menuCell">
+        <a href="/addannouncement">Plaseaza anunt</a>
+    </div>
+</div>
+
 </body>
 </html>

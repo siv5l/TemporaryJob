@@ -30,12 +30,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional
-    public void delete(int userId) {
+    public void delete(long userId) {
         userDAO.delete(userId);
     }
 
     @Transactional
-    public User getUser(int userId) {
+    public User getUser(long userId) {
         return userDAO.getUser(userId);
     }
 
@@ -49,5 +49,18 @@ public class UserServiceImpl implements UserService {
         return userDAO.getByUsername(username);
     }
 
+    @Transactional
+    public List getUsersJoinCategoryLocation(String locatie, String categorie) {
+        return userDAO.getUsersJoinCategoryLocation(locatie,categorie);
+    }
 
+    @Transactional
+    public List getUsersJoinCategory(String category) {
+        return userDAO.getUsersJoinCategory(category);
+    }
+
+    @Transactional
+    public List getUsersJoinLocation(String location) {
+        return userDAO.getUsersJoinLocation(location);
+    }
 }

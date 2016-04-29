@@ -7,10 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div>
-  <p>
-    <a href="/messages">My messages</a>
-  </p>
-  <p>
-    <a href="/profile">My profile</a>
-  </p>
+  <div>
+    <h1>My profile</h1>
+  </div>
+  <div>
+    <a href="/messages">Messages</a>
+  </div>
+  <div>
+    <a href="/${userAccount.username}/announcements">My Announcements</a>
+  </div>
+  <div>
+    <a href="/${userAccount.username}/notifications">Notification</a>
+  </div>
+
 </div>

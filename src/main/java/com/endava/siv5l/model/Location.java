@@ -28,16 +28,30 @@ public class Location {
             inverseJoinColumns = {@JoinColumn(name = "user_id")})
     private List<User> locationUsers = new ArrayList<User>();
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name="Announcement_Location_T",
+            joinColumns = {@JoinColumn(name="location_id")},
+            inverseJoinColumns = {@JoinColumn(name="announcement_id")})
+    private List<Announcement> announcementList = new ArrayList<Announcement>();
+
 
     public Location(){
     }
 
-    public Location(String name, int zipCode, List<User> locationUsers) {
+    public Location(List<Announcement> announcementList, String name, int zipCode, List<User> locationUsers) {
+        this.announcementList = announcementList;
         this.name = name;
         this.zipCode = zipCode;
         this.locationUsers = locationUsers;
     }
 
+    public List<Announcement> getAnnouncementList() {
+        return announcementList;
+    }
+
+    public void setAnnouncementList(List<Announcement> announcementList) {
+        this.announcementList = announcementList;
+    }
 
     public List<User> getLocationUsers() {
         return locationUsers;

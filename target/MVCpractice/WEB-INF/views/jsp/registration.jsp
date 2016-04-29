@@ -29,6 +29,18 @@
         <td><form:input path="password" /></td>
       </tr>
       <tr>
+          <td>Date of birth</td>
+          <td><form:input path="birthday" /></td>
+      </tr>
+      <tr>
+          <td>Cell phone</td>
+          <td><form:input path="phone" /></td>
+      </tr>
+      <tr>
+          <td>Email</td>
+          <td><form:input path="email" /></td>
+      </tr>
+      <tr>
         <td>Location</td>
         <td>
             <form:select path="locations" multiple="true" size="3">
@@ -52,6 +64,7 @@
                   <form:option value="Dadac">Dadac</form:option>
                   <form:option value="Contabilitate">Contabilitate</form:option>
               </form:select>
+
           </td>
       </tr>
       <tr>

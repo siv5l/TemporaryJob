@@ -29,12 +29,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void delete(int userId) {
+    public void delete(long userId) {
         sessionFactory.getCurrentSession().delete(getUser(userId));
     }
 
     @Override
-    public User getUser(int userId) {
+    public User getUser(long userId) {
         return (User) sessionFactory.getCurrentSession().get(User.class, userId);
     }
 
@@ -48,4 +48,23 @@ public class UserDAOImpl implements UserDAO {
        return (User) sessionFactory.getCurrentSession().createQuery("FROM User u where u.username = :u").setParameter("u", userName).uniqueResult();
     }
 
+    @Override
+    public List getUsersJoinCategoryLocation(String locatie, String categorie) {
+        return sessionFactory.getCurrentSession().createSQLQuery("SELECT User.user_id, User.password, User.username, User.first_name, User.last_name, User.date_of_birth, User.phone, User.email\n" +
+                "FROM User\n" +
+                "INNER JOIN User_Category ON User.user_id = User_Category.user_id\n" +
+                "INNER JOIN Category ON User_Category.category_id = Category.category_id\n" +
+                "INNER JOIN User_Location ON User.user_id = User_Location.user_id\n" +
+                "INNER JOIN Location ON User_Location.location_id = Location.location_id\n" +
+                "WHERE Location.name = :locatie AND Category.name = :categorie").addEntity(User.class).setParameter("locatie", locatie).setParameter("categorie",categorie).list();
+    }
+
+    @Override
+    public List getUsersJoinCategory(String category) {
+        return sessionFactory.getCurrentSession().createQuery("from User u join u.userCategories c where c.name =:category").setParameter("category",category).list();
+    }
+
+    public List getUsersJoinLocation(String location) {
+        return sessionFactory.getCurrentSession().createQuery("from User u join u.userLocations l where l.name =:location").setParameter("location",location).list();
+    }
 }

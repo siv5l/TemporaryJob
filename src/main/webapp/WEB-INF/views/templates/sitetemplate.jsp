@@ -14,6 +14,13 @@
 <head>
   <title><tiles:insertAttribute name="title" ignore="true" /></title>
   <link href="/resources/css/siteTemplateStyle.css" rel="stylesheet" />
+  <link href="/resources/css/menuStyle.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
     
@@ -28,61 +35,18 @@
     </div>
       
     <div id="menuDiv">
-        <tiles:insertAttribute name="menu" />
+            <tiles:insertAttribute name="menu" />
     </div>
       
     <div id="Content">
         <div id="filterQuery">
-           Data filter
-            <form>
-                <p>
-                Categoria:
-                </p>
-                <p>
-                    <select name="selectedCategories" size="3">
-                      <%--  <c:forEach items="${categories}" var="category">
-                            <option value="${category.name}">
-                                    ${category.name}
-                            </option>
-                        </c:forEach>--%>
-                        <option value="Electronica">Electronica</option>
-                        <option value="Constructie">Constructie</option>
-                        <option value="Soferie">Soferie</option>
-                        <option value="Bucatar">Bucatar</option>
-                        <option value="Dadac">Dadac</option>
-                        <option value="Contabilitate">Contabilitate</option>
-                    </select>
-                </p>
-                <p>
-                    Localitate:
-                </p>
-                <p>
-                    <select name="selectedLocations" size="3">
-                       <%-- <c:forEach items="${locations}" var="location">
-                            <option value="${location.name}">
-                                ${location.name}
-                            </option>
-                        </c:forEach>--%>
-                           <option value="Chisinau">Chisinau</option>
-                           <option value="Cahul">Cahul</option>
-                           <option value="Balti">Balti</option>
-                           <option value="Hincesti">Hincesti</option>
-                           <option value="Ialoveni">Ialoveni</option>
-                           <option value="Orhei">Orhei</option>
-                    </select>
-                </p>
-                <p>
-                    <input type="submit" value="refresh" />
-                </p>
-            </form>
+            <tiles:insertAttribute name="filter" />
         </div>
         <div id="bodyContent">
             <tiles:insertAttribute name="bodyContent" />
         </div>
         <div id="profileBox">
-            <div>
-                <tiles:insertAttribute name="profile" />
-            </div>
+            <tiles:insertAttribute name="profile" />
         </div>
     </div>
       

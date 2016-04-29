@@ -13,4 +13,8 @@ public interface AnnouncementService {
     public void delete(int announcementId);
     public Announcement getAnnouncement(int announcementId);
     public List getAllAnnouncements();
+    public List getAllMyAnnouncements(long id);
+    public List getAnnouncementJoinCategoryLocation(String locatie, String categorie);
+    public List getAnnouncementJoinCategory(String category);
+    public List getAnnouncementJoinLocation(String location);
 }

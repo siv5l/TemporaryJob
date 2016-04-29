@@ -19,12 +19,6 @@ import javax.servlet.http.HttpSession;
 
 
 public class EntryController {
-
-    @Autowired
-    private CategoryService categoryService;
-    @Autowired
-    private LocationService locationService;
-
     @Autowired
     private UserService userService;
 

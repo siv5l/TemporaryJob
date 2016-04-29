@@ -42,4 +42,26 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     public List getAllAnnouncements() {
         return announcementDAO.getAllAnnouncements();
     }
+
+    @Transactional
+    public List getAllMyAnnouncements(long id) {
+        return announcementDAO.getAllMyAnnouncements(id);
+    }
+
+    @Transactional
+    public List getAnnouncementJoinCategoryLocation(String locatie, String categorie) {
+        return announcementDAO.getAnnouncementJoinCategoryLocation(locatie,categorie);
+    }
+
+    @Transactional
+    public List getAnnouncementJoinCategory(String category) {
+        return announcementDAO.getAnnouncementJoinCategory(category);
+    }
+
+    @Transactional
+    public List getAnnouncementJoinLocation(String location) {
+        return  announcementDAO.getAnnouncementJoinLocation(location);
+    }
+
+
 }

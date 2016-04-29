@@ -49,36 +49,27 @@ public class RegistrationController {
 
     @RequestMapping(value = "/submitregistration", method = RequestMethod.POST)
     public String inregistrare(@ModelAttribute User user, BindingResult result,ModelMap map){
-
-
-
         System.out.println(user.getFirstName());
         List<String> loc = user.getLocations();
         List<String> cat = user.getCategories();
 
-        for(String l : loc){
-            System.out.println("Localitatea aleasa: " + l);
-            Location a  = locationService.getByName(l);
-            user.getUserLocations().add(a);
+        if(loc != null) {
+            for (String l : loc) {
+                Location a = locationService.getByName(l);
+                user.getUserLocations().add(a); //un utilizator poate functiona in mai multe localitati, ManyToMany
+            }
+        }
+        if(cat != null) {
+            for (String c : cat) {
+                Category a = categoryService.getByName(c);
+                user.getUserCategories().add(a); //un utilizator poate functiona in mai multe categorii, ManyToMany
+            }
         }
 
-        for(String c : cat){
-            /*Category a = new Category();
-            a.setName(c);
-            a.setDescriere("descriere");
-            categoryService.add(a);
-            user.getUserCategories().add(a);*/
-            System.out.println("Categoria aleasa: " + c);
-            Category a = categoryService.getByName(c);
-            user.getUserCategories().add(a);
-        }
-        userService.add(user);
-
+        userService.add(user); // persist utilizatorul care are se afla in mai multe categorii si localitati
         messageMap.getMapa().put(user.getUsername(),new HashMap<String, ArrayList<Message>>()); // adaug utilizatorul nou
                                                                         // in mapa cu mesaje
-
         map.addAttribute("userAccount",user);
-
 
         return "logged";
     }

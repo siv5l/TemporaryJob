@@ -17,7 +17,7 @@
                                                                 cu controller in parte -->
     <!--<mvc:annotation-driven/>  -->
     <!--
-    <bean id="HandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+    <bean id="HandlerMfbapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
     -->
 
     <!--
