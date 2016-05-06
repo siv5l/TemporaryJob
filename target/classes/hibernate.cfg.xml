@@ -9,5 +9,6 @@
         <mapping class="com.endava.siv5l.model.Category" />
         <mapping class="com.endava.siv5l.model.Location" />
         <mapping class="com.endava.siv5l.model.Announcement" />
+        <mapping class="com.endava.siv5l.model.Role"/>
     </session-factory>
 </hibernate-configuration>

@@ -15,8 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.Null;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,7 +38,7 @@ public class AnnouncementController {
     public String addingAnnouncment(ModelMap model){
         Announcement announcement = new Announcement();
         model.addAttribute("announcement",announcement);
-        return "announcement";
+        return "menu/addannouncement";
     }
 
     @RequestMapping(value = "/addannouncement", method = RequestMethod.POST)
@@ -72,7 +70,7 @@ public class AnnouncementController {
 
         announcementService.add(announcement); //salvez anuntul care are un utilizator, si este postat in mai multe localitati si categorii
 
-        return "logged";
+        return "log/logged";
     }
 
     @RequestMapping(value="/{username}/announcements", method = RequestMethod.GET)
@@ -81,7 +79,7 @@ public class AnnouncementController {
         User user = (User) session.getAttribute("userAccount");
         List<Announcement> announcements = announcementService.getAllMyAnnouncements(user.getUserId());
         model.addAttribute("anunturi",announcements);
-        return "showannouncements";
+        return "profile/showMyAnnouncements";
     }
 
 }

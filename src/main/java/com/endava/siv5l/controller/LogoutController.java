@@ -14,6 +14,6 @@ public class LogoutController {
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logout(HttpSession httpSession){
         httpSession.removeAttribute("userAccount");
-        return "signin";
+        return "log/unlogged";
     }
 }

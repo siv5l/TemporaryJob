@@ -34,7 +34,7 @@ public class MessagesController {
 
         model.addAttribute("messagesArray",msgs);
         model.addAttribute("messageUsers",userMessages);
-        return "messages";
+        return "profile/messages";
     }
 
     @RequestMapping(value = "/messages", method = RequestMethod.GET)
@@ -45,8 +45,8 @@ public class MessagesController {
             HashMap<String, ArrayList<Message>> userMessages = messageMap.getMapa().get(username);
             model.addAttribute("messageUsers", userMessages);
         }catch (NullPointerException ex){
-            return "messages";
+            return "profile/messages";
         }
-        return "messages";
+        return "profile/messages";
     }
 }

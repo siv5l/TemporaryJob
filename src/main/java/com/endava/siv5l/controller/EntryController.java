@@ -1,15 +1,13 @@
 package com.endava.siv5l.controller;
 
 
-import com.endava.siv5l.model.Location;
-import com.endava.siv5l.model.User;
-import com.endava.siv5l.service.CategoryService;
-import com.endava.siv5l.service.LocationService;
 import com.endava.siv5l.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import javax.servlet.http.HttpSession;
 
 /**
@@ -27,14 +25,21 @@ public class EntryController {
 
         try{
             if(!session.getAttribute("userAccount").equals(null)){
-                return "logged";
+                return "log/logged";
             }
             else {
-                return "signin";
+                System.out.println("1");
+                return "log/unlogged";
             }
         }
         catch (NullPointerException e){
-            return "signin";
+            System.out.println("2");
+            return "log/unlogged";
         }
     }
+
+    /*@RequestMapping(value = "*//*", method = RequestMethod.GET)
+    public String home(ModelMap model){
+        return "home";
+    }*/
 }
