@@ -21,8 +21,8 @@ public class ValidationLogin {
 
         if(result.hasErrors()){
             model.addAttribute(result);
-            return "signin";
+            return "log/unlogged";
         }
-            return "logged";
+            return "log/logged";
     }
 }

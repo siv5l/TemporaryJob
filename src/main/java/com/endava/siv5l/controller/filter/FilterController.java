@@ -12,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.*;
 
@@ -25,7 +27,8 @@ public class FilterController {
 
     @RequestMapping(value = "/submitfilter", method = RequestMethod.POST)
     public String submitfilterQuery(@Valid @ModelAttribute("filterQuery") FilterQuery filterQuery, BindingResult result,
-                                     ModelMap model){
+                                     ModelMap model,HttpSession httpSession){
+        User currentUser = (User) httpSession.getAttribute("userAccount");
         List<User> filterUsers = new ArrayList<User>();
         List<Announcement> filterAnnouncements = new ArrayList<Announcement>();
         try {
@@ -55,7 +58,13 @@ public class FilterController {
                     filterUsers = userService.getAllUsers();
                 }
                 model.addAttribute("filterUsers",filterUsers);
-                return "filter/showAllFilterUsers";
+                if(currentUser == null){
+                    return "filter/cloneFilterUsers";
+                }
+                else{
+                    return "filter/showAllFilterUsers";
+                }
+
             }
             else if(filterQuery.getOption().equals("announcement")){ // daca bifeaza radio butonul anunturi
                 if (filterQuery.getCategory() != null && filterQuery.getLocation() != null) {  //daca am ales si categoria si localitatea
@@ -86,7 +95,14 @@ public class FilterController {
                     filterAnnouncements = announcementService.getAllAnnouncements();
                 }
                 model.addAttribute("anunturi",filterAnnouncements);
-                return "filter/showAllFilterAnnouncements";
+
+                if(currentUser == null){
+                    return "filter/cloneFilterAnnouncements";
+                }
+                else{
+                    return "filter/showAllFilterAnnouncements";
+                }
+
             }
         }catch (NullPointerException e){
             return "log/unlogged";
