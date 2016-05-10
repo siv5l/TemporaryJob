@@ -1,5 +1,6 @@
 package com.endava.siv5l.model;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -56,16 +57,22 @@ public class User implements Serializable {
     @JoinColumn(name = "user_id")
     private List<Announcement> announcementsList = new ArrayList<Announcement>();
 
-    public User(){
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_role_id")
+    private Role role;
 
-    public User(String username, String lastName, String firstName, String password, String phone, String email,
+    @Column(name = "enabled")
+    private short enabled;
+
+    public User(){}
+
+    public User(String firstName, String lastName, String password, String username, String phone, String email,
                 Date birthday, List<Location> userLocations, List<String> locations, List<Category> userCategories,
-                List<String> categories, List<Announcement> announcementsList) {
-        this.username = username;
-        this.lastName = lastName;
+                List<String> categories, List<Announcement> announcementsList, Role role, short enabled) {
         this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
+        this.username = username;
         this.phone = phone;
         this.email = email;
         this.birthday = birthday;
@@ -74,6 +81,24 @@ public class User implements Serializable {
         this.userCategories = userCategories;
         this.categories = categories;
         this.announcementsList = announcementsList;
+        this.role = role;
+        this.enabled = enabled;
+    }
+
+    public short getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(short enabled) {
+        this.enabled = enabled;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public List<Announcement> getAnnouncementsList() {

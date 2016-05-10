@@ -31,36 +31,36 @@ public class SignInController {
 
 
     @RequestMapping(value = "/signin" , method = RequestMethod.GET /*,method = RequestMethod.POST*/)
-    public String checkAccount(/*@Valid @ModelAttribute("loginValidation") LoginValidation loginValidation,
-                                BindingResult result,*/ Principal principal,
+    public String checkAccount(@Valid @ModelAttribute("loginValidation") LoginValidation loginValidation,
+                                BindingResult result, Principal principal,
                                 ModelMap model){
-
-       /* if(result.hasErrors()){
+        System.out.println("user: " + principal.getName());
+        if(result.hasErrors()){
             return "log/login";
-        }*/
-       /* try{
+        }
+        try{
             // adaug useru in MAP pentru chat
-            User user = userService.getByUsername(loginValidation.getUsername()); */
+           /* User user = userService.getByUsername(loginValidation.getUsername());*/
             User user = userService.getByUsername(principal.getName());
-            /*if((user != null) && (loginValidation.getPassword().equals(user.getPassword()))){
-                messageMap.getMapa().put(loginValidation.getUsername(),new HashMap<String, ArrayList<Message>>()); // ii cream userului
-                                                                                                // logat o mapa de mesaje */
-                messageMap.getMapa().put(principal.getName(),new HashMap<String, ArrayList<Message>>());
+        /*    if((user != null) && (loginValidation.getPassword().equals(user.getPassword()))){*/
+               /* messageMap.getMapa().put(loginValidation.getUsername(),new HashMap<String, ArrayList<Message>>());*/ // ii cream userului
+                                                                                                // logat o mapa de mesaje
+               messageMap.getMapa().put(principal.getName(),new HashMap<String, ArrayList<Message>>());
                 model.addAttribute("userAccount",user);
-        return "log/logged";
-        /*        }
+                return "log/logged";
+              /*  }
             else {
                 return "log/unlogged";
-            }
-            return "log/logged";
+            }*/
+
         }
         catch(HibernateException hibernateException){
             hibernateException.printStackTrace();
             return "log/unlogged";
-        }*/
+        }
     }
 
-   /* @RequestMapping(value = "/signin", method = RequestMethod.GET)
+  /*  @RequestMapping(value = "/signin", method = RequestMethod.GET)
     public String checkAcount(){
         return "log/logged";
     }*/
@@ -77,21 +77,4 @@ public class SignInController {
         return "registration/registration";
     }
 
-    @RequestMapping(value="/welcome", method = RequestMethod.GET)
-    public String welcomePage(ModelMap model,Principal principal){
-        System.out.println("asdasdasdas");
-        model.addAttribute("username",principal.getName());
-        model.addAttribute("message","This is welcome pageeee");
-        return "welcomePage";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(ModelMap model){
-        return "/logare";
-    }
-
-    @RequestMapping(value="/logoutSuccessful", method = RequestMethod.GET)
-    public String logoutPage(){
-        return "/home";
-    }
 }
